@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="https://kendo.cdn.telerik.com/themes/7.0.2/default/default-main.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.2.616/js/kendo.all.min.js"></script>
+</head>
+<body>
+    <div id="example">
+        <div id="grid"></div>
+
+        <script>
+            $(document).ready(function () {
+                var crudServiceBaseUrl = "";
+                var dataSource = new kendo.data.DataSource({
+                    transport: {
+                        read: {
+                            url: crudServiceBaseUrl + "/Products",
+                            dataType: "jsonp"
+                        },
+                        update: {
+                            url: crudServiceBaseUrl + "/Products/Update",
+                            dataType: "jsonp"
+                        },
+                        destroy: {
+                            url: crudServiceBaseUrl + "/Products/Destroy",
+                            dataType: "jsonp"
+                        },
+                        create: {
+                            url: crudServiceBaseUrl + "/Products/Create",
+                            dataType: "jsonp"
+                        },
+                        parameterMap: function (options, operation) {
+                            if (operation !== "read" && options.models) {
+                                return { models: kendo.stringify(options.models) };
+                            }
+                        }
+                    },
+                    batch: true,
+                    pageSize: 20,
+                    schema: {
+                        model: {
+                            id: "ProductID",
+                            fields: {
+                                // ProductID: { editable: false, nullable: true },
+                                // ProductName: { validation: { required: true } },
+                                // UnitPrice: { type: "number", validation: { required: true, min: 1 } },
+                                // Discontinued: { type: "boolean" },
+                                // UnitsInStock: { type: "number", validation: { min: 0, required: true } },
+
+                                Remarks: { validation: { required: true } },
+                                Date: { type: "date" },
+                                FormNo: { type: "string" },
+                                Quality1: { type: "number", validation: { required: true, min: 1 } },
+                                Cost1: { type: "number" },
+                                Rate1: { type: "number" },
+                                Quality2: { type: "number" },
+                                Cost2: { type: "number" },
+                                Rate2: { type: "number" },
+                                Quality3: { type: "number" },
+                                Cost3: { type: "number" },
+                                Rate3: { type: "number" },
+                                Quality4: { type: "number" },
+                                Cost4: { type: "number" },
+                                Rate4: { type: "number" },
+                                Quantity4: { type: "number" }
+                            }
+                        }
+                    }
+                });
+
+                $("#grid").kendoGrid({
+                    dataSource: dataSource,
+                    navigatable: true,
+                    pageable: true,
+                    height: 550,
+                    toolbar: ["create", "save", "cancel"],
+                    columns: [
+                        { field: "Date", title: "मितिः", format: "{0:MM/dd/yyyy}", width: 120 },
+                        { field: "FormNo", title: "दाखिला/ निकासा/ हस्तान्तरण/फिर्ता फाराम नं.", headerTemplate: "दाखिला/ निकासा/<br/>हस्तान्तरण/<br/>फिर्ता फाराम नं.", width: 200 },
+                        {
+                            title: "गत आ. व.को बाँकी (अ.ल्या.)",
+                            columns: [
+                                { field: "Quality1", title: "परिमाण", width: 100 },
+                                { field: "Cost1", title: "दर", width: 100 },
+                                { field: "Rate1", title: "रकम", width: 100 }
+                            ]
+                        },
+                        {
+                            title: "स्टोर दाखिला (आम्दानी)",
+                            columns: [
+                                { field: "Quality2", title: "परिमाण", width: 100 },
+                                { field: "Cost2", title: "दर", width: 100 },
+                                { field: "Rate2", title: "रकम", width: 100 }
+                            ]
+                        },
+                        {
+                            title: "निकासा (खर्च)",
+                            columns: [
+                                { field: "Quality3", title: "परिमाण", width: 100 },
+                                { field: "Cost3", title: "दर", width: 100 },
+                                { field: "Rate3", title: "रकम", width: 100 }
+                            ]
+                        },
+                        {
+                            title: "बाँकी ",
+                            columns: [
+                                { field: "Quality4", title: "परिमाण", width: 100 },
+                                { field: "Cost4", title: "दर", width: 100 },
+                                { field: "Rate4", title: "रकम", width: 100 }
+                            ]
+                        },
+
+
+                        { field: "Remarks", title: "कैफियत", width: 120 },
+
+                        { command: "destroy", title: "&nbsp;", width: 150 },
+
+                    ],
+
+                    editable: true,
+                    edit: onEdit
+                });
+
+                function onEdit(e) {
+                    if (e.model.isNew()) {
+                        // Set the value of Rate based on Quality and Cost when adding a new record
+                        e.model.set("Rate1", e.model.Quality1 * e.model.Cost1);
+                        e.model.set("Rate2", e.model.Quality2 * e.model.Cost2);
+                        e.model.set("Rate3", e.model.Quality3 * e.model.Cost3);
+
+                        // Calculate Quantity4 based on the formula Rate1 + Rate2 - Rate3
+                        var quality4Value = e.model.get("Quality1") + e.model.get("Quality2") - e.model.get("Quality3");
+                        e.model.set("Quality4", quality4Value);
+
+                        var rate4Value = e.model.get("Rate1") + e.model.get("Rate2") - e.model.get("Rate3");
+                        e.model.set("Rate4", rate4Value);
+                    }
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>

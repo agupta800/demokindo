@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Changelog for Kendo UI Professional v2023.3.1114 (Tue Nov 14 2023)</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font: .75em/1.5 Tahoma, sans-serif;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            font-size: normal;
+        }
+
+        h2 {
+            font-size: 2em;
+            font-weight: normal;
+            margin: 1.2em 0 .3em;
+            padding-bottom: .2em;
+        }
+
+        .breaking {
+            background-color: #e10c01;
+            color: #fff;
+            border-radius: 3px;
+            padding: 3px 4px;
+            display: inline-block;
+            font-size: 11px;
+            line-height: 1;
+            font-weight: bold;
+        }
+
+        #page {
+            width: 50em;
+            margin: 0 auto 2em;
+            border-radius: 0 0 1em 1em;
+            box-shadow: 0 0 10px #ccc;
+            padding: 1em 2em 2em;
+        }
+
+        .poBoxIcon {
+            float: left;
+            font-size: 2em;
+            margin: 1.2em .5em 0 0;
+        }
+
+        .poTopLine {
+            border-top: 2px solid #e1e1e1;
+            margin: 17px 0 40px 0;
+        }
+    </style>
+    <base href="https://www.telerik.com/support/whats-new/kendo-ui-web/release-history">
+</head>
+
+<body>
+    <div id="page">
+        <h1 class="title">Release notes</h1>
+        <div class="tClear poTopLine"></div>
+        <h1>Common</h1>
+        <div class="tClear poTopLine">
+            <div class="poBoxIconText">
+                <p><strong>What's new</strong></p>
+                <ul>
+                    <li>Fluent Theme Package <a href="https://github.com/telerik/kendo-themes/blob/master/packages/fluent/CHANGELOG.md#702-2023-11-06"> (v.7.0.2) </a></li>
+                    <li>Classic Theme Package <a href="https://github.com/telerik/kendo-themes/blob/master/packages/classic/CHANGELOG.md#702-2023-11-06"> (v.7.0.2) </a></li>
+                    <li>Bootstrap Theme Package <a href="https://github.com/telerik/kendo-themes/blob/master/packages/bootstrap/CHANGELOG.md#702-2023-11-06"> (v.7.0.2) </a></li>
+                    <li>Default Theme Package <a href="https://github.com/telerik/kendo-themes/blob/master/packages/default/CHANGELOG.md#702-2023-11-06"> (v.7.0.2) </a></li>
+                    <li>Material Theme Package <a href="https://github.com/telerik/kendo-themes/blob/master/packages/material/CHANGELOG.md#702-2023-11-06"> (v.7.0.2) </a></li>
+                    <li>Support for JSZip 3.10.1 <a href="https://github.com/telerik/kendo-ui-core/issues/2316">(#2316)</a></li>
+                </ul>
+                <p><strong>What's fixed</strong></p>
+                <ul>
+                    <li>Localization with zh-TW culture throws a JavaScript error <a href="https://github.com/telerik/kendo-ui-core/issues/7496">(#7496)</a></li>
+                </ul>
+            </div>
+        </div>
+        <h1>Features and Updates</h1>
+        <div class="tClear poTopLine">
+            <h2>DateInput</h2>
+            <p><strong>What's fixed</strong></p>
+            <ul>
+                <li>Days cannot be greater than 9 in "yyyy/MM/dd" format for DateInput <a href="https://github.com/telerik/kendo-ui-core/issues/7442">(#7442)</a></li>
+            </ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>DateRangePicker</h2>
+            <p><strong>What's fixed</strong></p>
+            <ul>
+                <li>DateRangePicker component popup window closes if the user selects the current year <a href="https://github.com/telerik/kendo-ui-core/issues/7467">(#7467)</a></li>
+                <li>Entering date is not possible In DateRangePicker when format is set <a href="https://github.com/telerik/kendo-ui-core/issues/7451">(#7451)</a></li>
+            </ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>DateTimePicker</h2>
+            <p><strong>What's fixed</strong></p>
+            <ul>
+                <li>DateTimePicker throwns an error when templated date is selected in modern type <a href="https://github.com/telerik/kendo-ui-core/issues/6941">(#6941)</a></li>
+            </ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>DropDownList</h2>
+            <p><strong>What's fixed</strong></p>
+            <ul>
+                <li>DropDownList's filter option cannot be set through setOptions method <a href="https://github.com/telerik/kendo-ui-core/issues/7500">(#7500)</a></li>
+            </ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>FileManager</h2>
+            <p><strong>What's fixed</strong></p>
+            <ul>
+                <li>The previewPane of multiple files in the FileManager is broken <a href="https://github.com/telerik/kendo-ui-core/issues/7377">(#7377)</a></li>
+            </ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Grid</h2>
+            <p><strong>What's fixed</strong></p>
+            <ul>
+                <li>Encoded script tag in a column template is evaluated when the template is rendered</li>
+                <li>Columns submenu and Set Column Position submenu are not shown for a grouped Grid column</li>
+                <li>Grid header broken appearance when initialized from a table element</li>
+                <li>Grid that is initialized from table is missing the row hover styles <a href="https://github.com/telerik/kendo-ui-core/issues/7543">(#7543)</a></li>
+                <li>Grid column reorder hint not appearing consistently in locked columns scenario <a href="https://github.com/telerik/kendo-ui-core/issues/7540">(#7540)</a></li>
+                <li>Grid's pager breaks if you use the setOptions method on the Pager. <a href="https://github.com/telerik/kendo-ui-core/issues/7522">(#7522)</a></li>
+                <li>Grid Pager doesn't show on load <a href="https://github.com/telerik/kendo-ui-core/issues/7520">(#7520)</a></li>
+                <li>Canceling Inline/Popup Edit Displays Hidden Columns <a href="https://github.com/telerik/kendo-ui-core/issues/7515">(#7515)</a></li>
+                <li>Cancelling row changes while there is a hidden column breaks the layout of the content. <a href="https://github.com/telerik/kendo-ui-core/issues/7514">(#7514)</a></li>
+                <li>When filterable or sortable are enabled in PivotConfiguratorV2 and Grid on the same page an error is thrown <a href="https://github.com/telerik/kendo-ui-core/issues/7481">(#7481)</a></li>
+                <li>Grid with column menu throws an error when the groupable.enabled is set to false <a href="https://github.com/telerik/kendo-ui-core/issues/7457">(#7457)</a></li>
+                <li>Incorrect DOM element of the drag handle <a href="https://github.com/telerik/kendo-ui-core/issues/7423">(#7423)</a></li>
+                <li>Grid header text overlaps with column menu icons <a href="https://github.com/telerik/kendo-ui-core/issues/7420">(#7420)</a></li>
+                <li>Editing a Grid cell with enter key causes the Grid to scroll to the top. <a href="https://github.com/telerik/kendo-ui-core/issues/7396">(#7396)</a></li>
+            </ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>PDFViewer</h2>
+            <p><strong>What's new</strong></p>
+            <ul>
+                <li>Add clickable links in the page</li>
+            </ul>
+            <p><strong>What's fixed</strong></p>
+            <ul>
+                <li>Text cannot be selected in PDFViewer with pdfjs v3.4.120 <a href="https://github.com/telerik/kendo-ui-core/issues/7250">(#7250)</a></li>
+            </ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Pager</h2>
+            <p><strong>What's fixed</strong></p>
+            <ul>
+                <li>Pager buttons and dropdown are both visible <a href="https://github.com/telerik/kendo-ui-core/issues/7508">(#7508)</a></li>
+            </ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>PivotGridV2</h2>
+            <p><strong>What's fixed</strong></p>
+            <ul>
+                <li>When filterable or sortable are enabled in PivotConfiguratorV2 and Grid on the same page an error is thrown <a href="https://github.com/telerik/kendo-ui-core/issues/7481">(#7481)</a></li>
+            </ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Spreadsheet</h2>
+            <p><strong>What's fixed</strong></p>
+            <ul>
+                <li>Missing dash in aria-label attribute of 'Add new sheet' button in FF </li>
+            </ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Tooltip</h2>
+            <p><strong>What's fixed</strong></p>
+            <ul>
+                <li>2nd display of a tooltip's text is always wrapping <a href="https://github.com/telerik/kendo-ui-core/issues/7373">(#7373)</a></li>
+            </ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>TreeList</h2>
+            <p><strong>What's new</strong></p>
+            <ul>
+                <li>Improve the appearance when a Kendo component is initialized in the TreeList template <a href="https://github.com/telerik/kendo-ui-core/issues/7551">(#7551)</a></li>
+            </ul>
+            <p><strong>What's fixed</strong></p>
+            <ul>
+                <li>TreeList Keyboard navigation enhancements</li>
+                <li>TreeList resets its column template when expanding <a href="https://github.com/telerik/kendo-ui-core/issues/7583">(#7583)</a></li>
+                <li>Cannot expand or collapse items with row template in TreeList <a href="https://github.com/telerik/kendo-ui-core/issues/7519">(#7519)</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
